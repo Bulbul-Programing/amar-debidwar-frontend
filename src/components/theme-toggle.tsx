@@ -12,10 +12,11 @@ export default function ThemeToggle() {
     if (!currentTheme) return null;
 
     return (
-        <div className="border rounded-full">
+        <div className="border-2 border-foreground/30 rounded-full">
             <Toggle
                 variant="outline"
-                className="group bg-white size-8 cursor-pointer rounded-full border-none shadow-none "
+                className="group border-2 size-8 cursor-pointer rounded-full border-none shadow-none
+                           bg-transparent! hover:bg-transparent! focus:bg-transparent! active:bg-transparent!"
                 pressed={currentTheme === "dark"}
                 onPressedChange={() =>
                     setTheme(currentTheme === "dark" ? "light" : "dark")
