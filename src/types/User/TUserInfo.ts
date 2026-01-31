@@ -12,6 +12,12 @@ export type TUser = {
     password: string;
     phone: string;
     role: UserRole;
+    isActive: boolean;
     createdAt: Date;
     updateAt: Date;
 };
+
+export const TUserCategory = [
+    { label: "Admin", value: "ADMIN" },
+    { label: "User", value: "USER" }
+]
