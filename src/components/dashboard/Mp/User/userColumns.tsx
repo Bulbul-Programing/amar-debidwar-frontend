@@ -6,7 +6,10 @@ import { RoleBadgeCell } from "@/components/Shared/cell/RoleBadgeCell";
 import { StatusBadgeCell } from "@/components/Shared/cell/StatusBadgeCell";
 import { UserInfoCell } from "@/components/Shared/cell/UserInfoCell";
 import { Column } from "@/components/Shared/ManagementTable";
+import { Button } from "@/components/ui/button";
+import { blockedUser } from "@/service/Dashboard/MP/userManagement";
 import { TUser } from "@/types/User/TUserInfo";
+import { toast } from "sonner";
 
 export const userColumns: Column<TUser>[] = [
     {
@@ -42,7 +45,7 @@ export const userColumns: Column<TUser>[] = [
             <StatusBadgeCell
                 activeText="Active"
                 deletedText="Block"
-                isDeleted={user.isActive}
+                isDeleted={!user.isActive}
             />
         ),
         sortKey: "isActive",
@@ -57,4 +60,36 @@ export const userColumns: Column<TUser>[] = [
         accessor: (user) => <DateCell date={user.updateAt} />,
         sortKey: "updateAt",
     },
+    {
+        header: "Updated At",
+        accessor: (user) => <DateCell date={user.updateAt} />,
+        sortKey: "updateAt",
+    },
+    {
+        header: "Action",
+        accessor: (user) => {
+            let loading = false
+
+            const updateUser = async () => {
+                loading = true
+                const result = await blockedUser(user)
+                if (result.success) {
+                    loading = false
+                    toast.success(result.message || "User status update successfully")
+                }
+                else {
+                    toast.error('User status update Fail !')
+                }
+            }
+
+            return (
+                <div>
+                    {
+                        loading ? <Button size="xs" disabled>Updating...</Button> :
+                            <Button size="xs" className="cursor-pointer" disabled={loading} onClick={() => updateUser()}>{user.isActive ? 'Block' : 'Unblock'}</Button>
+                    }
+                </div>
+            )
+        }
+    }
 ];

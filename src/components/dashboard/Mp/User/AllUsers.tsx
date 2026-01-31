@@ -6,6 +6,8 @@ import { userColumns } from "./userColumns";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { toast } from "sonner";
+import UserViewDetailDialog from "./UserViewDetailDialog";
+import DeleteConfirmationDialog from "@/components/Shared/DeleteConfirmationDialog";
 
 interface userProps {
     users: TUser[]
@@ -59,11 +61,27 @@ const AllUsers = ({ users }: userProps) => {
                 data={users}
                 columns={userColumns}
                 onView={handleView}
-                onEdit={handleEdit}
                 onDelete={handleDelete}
-                getRowKey={(spot) => spot.id}
-                emptyMessage="No spots found"
+                getRowKey={(user) => user.id}
+                emptyMessage="No User found"
             />
+
+            <UserViewDetailDialog
+                open={!!viewingUser}
+                onClose={() => setViewingUser(null)}
+                user={viewingUser}
+            />
+
+            <DeleteConfirmationDialog
+                open={!!deletingUser}
+                onOpenChange={(open) => !open && setDeletingUser(null)}
+                onConfirm={confirmDelete}
+                title="Delete User"
+                description={`Are you sure you want to delete ${deletingUser?.name}? This action cannot be undone.`}
+                isDeleting={isDeleting}
+
+            />
+
         </div>
     );
 };

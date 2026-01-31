@@ -14,15 +14,15 @@ const UserPage = async ({
 
     const userResult = await getAllUsers(queryString);
     const totalPages = Math.ceil(
-        (userResult?.meta?.total || 1) / (userResult?.meta?.limit || 1)
+        (userResult?.data?.meta?.total || 1) / (userResult?.data?.meta?.limit || 1)
     );
 
     return (
-        <div>
+        <div className="space-y-4">
             <UserSearch />
             <AllUsers users={userResult?.data?.data} />
             <TablePagination
-                currentPage={userResult?.meta?.page || 1}
+                currentPage={userResult?.data?.meta?.page || 1}
                 totalPages={totalPages || 1}
             />
         </div>
