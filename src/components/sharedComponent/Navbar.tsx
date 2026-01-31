@@ -4,7 +4,7 @@ import Logo from './Logo';
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
 import { Button } from '../ui/button';
 import { NavigationMenu, NavigationMenuList } from '../ui/navigation-menu';
-import { HomeIcon, NewspaperIcon, UserIcon } from 'lucide-react';
+import { HomeIcon, HandCoins, UserIcon, FolderKanban} from 'lucide-react';
 import SmallDeviceNavigation from './SmallDeviceNavigation';
 import LargeDeviceNavigation from './LargeDeviceNavigation';
 import ThemeToggle from '../theme-toggle';
@@ -12,10 +12,15 @@ import UserMenu from '../userMenu';
 import { getCookie } from '@/service/Auth/tokenHandlers';
 import { getUserInfo } from '@/service/Auth/getUserInfo';
 import { getDefaultDashboardRoute } from '@/lib/auth-utils';
+import { FaRegMoneyBill1 } from "react-icons/fa6"
+import { MdOutlineReport } from "react-icons/md";
 
 export const navigationLinks = [
     { href: "/", label: "Home", icon: HomeIcon, active: true },
-    { href: "/tours", label: "Tours Spot", icon: NewspaperIcon },
+    { href: "/projects", label: "Projects", icon: FolderKanban, active: true },
+    { href: "/allowances", label: "Allowances", icon: HandCoins, active: true },
+    { href: "/accounts", label: "Accounts", icon: FaRegMoneyBill1, active: true },
+    { href: "/complain", label: "Complain", icon: MdOutlineReport, active: true },
     { href: "/about", label: "About", icon: UserIcon },
 ]
 
@@ -27,7 +32,7 @@ const Navbar = async () => {
         : "/";
     return (
         <div className="">
-            <header className=" border-b-2 border-secondary backdrop-blur-lg md:px-6  w-full">
+            <header className=" border-b-2 border-secondary backdrop-blur-lg md:px-2 lg:px-6  w-full">
                 <div className="flex bg-transparent h-16 items-center justify-between gap-4">
                     {/* Left side */}
                     <div className='flex items-center'>
@@ -36,7 +41,7 @@ const Navbar = async () => {
                             <Popover>
                                 <PopoverTrigger asChild>
                                     <Button
-                                        className="group size-8 md:hidden"
+                                        className="group size-8 lg:hidden"
                                         variant="ghost"
                                         size="icon"
                                     >
@@ -67,7 +72,7 @@ const Navbar = async () => {
                                         </svg>
                                     </Button>
                                 </PopoverTrigger>
-                                <PopoverContent align="start" className="w-36 p-1 md:hidden">
+                                <PopoverContent align="start" className="w-36 p-1 lg:hidden">
                                     <NavigationMenu className="max-w-none *:w-full">
                                         <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
                                             <SmallDeviceNavigation />
@@ -79,14 +84,14 @@ const Navbar = async () => {
                                 {/* Logo */}
                                 <Link className='flex items-center' href='/'>
                                     <Logo />
-                                    <h3 className='text-xl text-primary font-bold'>Amer Debidwar</h3>
+                                    <h3 className='text-xl md:text-lg lg:text-xl text-primary font-bold'>Amer Debidwar</h3>
                                 </Link>
                                 {/* Desktop navigation - icon only */}
 
                             </div>
                         </div>
                         <div className=" px-5 py-2 rounded-full">
-                            <NavigationMenu className="hidden md:flex">
+                            <NavigationMenu className="hidden lg:flex">
                                 <NavigationMenuList className="gap-2">
                                     <LargeDeviceNavigation />
                                 </NavigationMenuList>
