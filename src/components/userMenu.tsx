@@ -40,8 +40,8 @@ export default function UserMenu({
   }
 
   return (
-    <Link href="/login">
-      <Button>Login</Button>
+    <Link href="/login" className="cursor-pointer">
+      <Button className="cursor-pointer">Login</Button>
     </Link>
   );
 }
