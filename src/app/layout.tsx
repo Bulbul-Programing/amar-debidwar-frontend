@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { Toaster } from "sonner";
+import { Suspense } from "react";
+import LoginSuccessToast from "@/components/Shared/LoginSuccessToast";
+import LogoutSuccessToast from "@/components/Shared/LogoutSuccessToast";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -37,7 +41,12 @@ export default function RootLayout({
         <div className="max-w-7xl mx-auto">
           <ThemeProvider>
             {children}
+            <Toaster richColors />
           </ThemeProvider>
+          <Suspense fallback={null}>
+            <LoginSuccessToast />
+            <LogoutSuccessToast />
+          </Suspense>
         </div>
       </body>
     </html>
