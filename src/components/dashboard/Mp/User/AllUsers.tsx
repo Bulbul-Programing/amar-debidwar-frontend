@@ -8,6 +8,7 @@ import { useState, useTransition } from "react";
 import { toast } from "sonner";
 import UserViewDetailDialog from "./UserViewDetailDialog";
 import DeleteConfirmationDialog from "@/components/Shared/DeleteConfirmationDialog";
+import { deleteUser } from "@/service/Dashboard/MP/userManagement";
 
 interface userProps {
     users: TUser[]
@@ -18,7 +19,6 @@ const AllUsers = ({ users }: userProps) => {
     const [, startTransition] = useTransition();
     const [deletingUser, setDeletingUser] = useState<TUser | null>(null);
     const [viewingUser, setViewingUser] = useState<TUser | null>(null);
-    const [editingUser, setEditingUser] = useState<TUser | null>(null);
     const [isDeleting, setIsDeleting] = useState(false);
 
     const handleRefresh = () => {
@@ -31,28 +31,24 @@ const AllUsers = ({ users }: userProps) => {
         setViewingUser(spot);
     };
 
-    const handleEdit = (spot: TUser) => {
-        setEditingUser(spot);
-    };
-
     const handleDelete = (spot: TUser) => {
         setDeletingUser(spot);
     };
 
     const confirmDelete = async () => {
-        // if (!deletingUser) return;
+        if (!deletingUser) return;
 
-        // setIsDeleting(true);
-        // const result = await deleteSpot(deletingUser.id);
-        // setIsDeleting(false);
+        setIsDeleting(true);
+        const result = await deleteUser(deletingUser.id);
+        setIsDeleting(false);
 
-        // if (result.success) {
-        //     toast.success(result.message || "Spot deleted successfully");
-        //     setDeletingUser(null);
-        //     handleRefresh();
-        // } else {
-        //     toast.error(result.message || "Failed to delete spot");
-        // }
+        if (result.success) {
+            toast.success(result.message || "User deleted successfully");
+            setDeletingUser(null);
+            handleRefresh();
+        } else {
+            toast.error(result.message || "Failed to delete User");
+        }
     };
 
     return (
