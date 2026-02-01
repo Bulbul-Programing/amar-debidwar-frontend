@@ -74,6 +74,77 @@ export const getMPNavItems = async (): Promise<NavSection[]> => {
                 }
             ],
         },
+        {
+            title: "Project Management",
+            items: [
+                {
+                    title: "Found Sources",
+                    href: "/mp/dashboard/fundSources",
+                    icon: "BanknoteArrowUp",
+                    badge: undefined,
+                    roles: ["MP"],
+                },
+                {
+                    title: "Budget",
+                    href: "/mp/dashboard/budget",
+                    icon: "DollarSign",
+                    badge: undefined,
+                    roles: ["MP"],
+                },
+                {
+                    title: "Projects",
+                    href: "/mp/dashboard/projects",
+                    icon: "SquareChartGantt",
+                    badge: undefined,
+                    roles: ["MP"],
+                },
+                {
+                    title: "Expense Category",
+                    href: "/mp/dashboard/expenseCategory",
+                    icon: "ChartBarStacked",
+                    badge: undefined,
+                    roles: ["MP"],
+                },
+                {
+                    title: "Expense",
+                    href: "/mp/dashboard/expense",
+                    icon: "BanknoteArrowDown",
+                    badge: undefined,
+                    roles: ["MP"],
+                },
+            ],
+        },
+        {
+            title: "Donation Management",
+            items: [
+                {
+                    title: "Donation Section",
+                    href: "/mp/dashboard/donationSection",
+                    icon: "HandCoins",
+                    badge: undefined,
+                    roles: ["MP"],
+                },
+                {
+                    title: "Service recipient",
+                    href: "/mp/dashboard/ServiceRecipient",
+                    icon: "Accessibility",
+                    badge: undefined,
+                    roles: ["MP"],
+                }
+            ],
+        },
+        {
+            title: "Complain Management",
+            items: [
+                {
+                    title: "Complains",
+                    href: "/mp/dashboard/complains",
+                    icon: "MessageCircleWarning",
+                    badge: undefined,
+                    roles: ["MP"],
+                }
+            ],
+        },
     ]
 }
 
