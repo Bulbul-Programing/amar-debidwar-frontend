@@ -1,5 +1,6 @@
 import AllProjectTable from '@/components/dashboard/Mp/Projects/AllProjectTable';
 import ProjectManagementHeader from '@/components/dashboard/Mp/Projects/ProjectManagementHeader';
+import ProjectSearch from '@/components/dashboard/Mp/Projects/ProjectSearch';
 import TablePagination from '@/components/Shared/TablePagination';
 import { queryStringFormatter } from '@/lib/formatters';
 import { getAllBudgets } from '@/service/Dashboard/MP/budget/budgetManagement';
@@ -23,6 +24,7 @@ const page = async ({
     return (
         <div className="space-y-5">
             <ProjectManagementHeader budget={budgets?.data?.data} />
+            <ProjectSearch />
             <Suspense fallback={<ManagementTableSkeleton columnCount={7} hasActions={true} rowCount={5} />}>
                 <AllProjectTable budgets={budgets?.data?.data} projects={projects?.data?.data} />
             </Suspense>

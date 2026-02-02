@@ -2,13 +2,13 @@ import RefreshButton from '@/components/Shared/RefreshButton';
 import SearchFilter from '@/components/Shared/SearchFilter';
 import React from 'react';
 
-const BudgetSearch = () => {
+const ExpenseCategorySearch = () => {
     return (
         <div className="flex items-center gap-3">
-            <SearchFilter paramName="searchTerm" placeholder="Search Budget..." />
+            <SearchFilter paramName="searchTerm" placeholder="Search Expense Category..." />
             <RefreshButton />
         </div>
     );
 };
 
-export default BudgetSearch;
+export default ExpenseCategorySearch;
