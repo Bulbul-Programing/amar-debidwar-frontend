@@ -76,7 +76,7 @@ const AllExpenseCategory = ({ expenseCategory }: AllExpenseCategoryProps) => {
                     !open && setDeletingExpenseCategory(null)
                 }
                 onConfirm={confirmDelete}
-                title="Delete Budget"
+                title="Delete Expense Category"
                 description={`Are you sure you want to delete ${deletingExpenseCategory?.name}? This action cannot be undone.`}
                 isDeleting={isDeleting}
             />

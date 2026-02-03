@@ -76,7 +76,7 @@ const AllDonationSection = ({ donationSection }: donationSectionProps) => {
                     !open && setDeletingDonationSection(null)
                 }
                 onConfirm={confirmDelete}
-                title="Delete Budget"
+                title="Delete Donation Section"
                 description={`Are you sure you want to delete ${deletingDonationSection?.title}? This action cannot be undone.`}
                 isDeleting={isDeleting}
             />

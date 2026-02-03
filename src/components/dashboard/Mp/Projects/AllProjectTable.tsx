@@ -93,7 +93,7 @@ const AllProjectTable = ({ budgets, projects }: AllProjectProps) => {
                     !open && setDeletingProject(null)
                 }
                 onConfirm={confirmDelete}
-                title="Delete Budget"
+                title="Delete Project"
                 description={`Are you sure you want to delete ${deletingProject?.title}? This action cannot be undone.`}
                 isDeleting={isDeleting}
             />
