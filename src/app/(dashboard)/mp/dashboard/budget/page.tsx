@@ -26,7 +26,7 @@ const page = async ({
         <div className="space-y-5">
             <BudgetsManagementHeader fundSources={fundSources?.data?.data} />
             <BudgetSearch />
-            <Suspense fallback={<ManagementTableSkeleton columnCount={2} hasActions={true} rowCount={5} />}>
+            <Suspense fallback={<ManagementTableSkeleton columnCount={6} hasActions={true} rowCount={5} />}>
                 <AllBudget budgets={budgets?.data?.data} fundSources={fundSources?.data?.data} />
             </Suspense>
             <TablePagination

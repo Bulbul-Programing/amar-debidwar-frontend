@@ -137,6 +137,13 @@ export const getMPNavItems = async (): Promise<NavSection[]> => {
             title: "Complain Management",
             items: [
                 {
+                    title: "Complains Category",
+                    href: "/mp/dashboard/complainsCategory",
+                    icon: "ChartBarStacked",
+                    badge: undefined,
+                    roles: ["MP"],
+                },
+                {
                     title: "Complains",
                     href: "/mp/dashboard/complains",
                     icon: "MessageCircleWarning",
