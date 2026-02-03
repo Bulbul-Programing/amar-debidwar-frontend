@@ -52,7 +52,7 @@ const BudgetFormDialog = ({
 }: IBudgetFormDialogProps) => {
     const formRef = useRef<HTMLFormElement>(null);
     const isEdit = !!budget;
-    console.log({budget});
+    console.log({ budget });
     const [selectedFundSource, setSelectedFundSource] =
         useState<TFundSource | null>(budget?.fundSource ?? null);
 
@@ -70,6 +70,15 @@ const BudgetFormDialog = ({
         setSelectedFundSource(budget?.fundSource ?? null);
         onClose();
     };
+
+    useEffect(() => {
+        if (budget) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
+            setSelectedFundSource(budget.fundSource ?? null);
+        } else {
+            setSelectedFundSource(null);
+        }
+    }, [budget]);
 
     useEffect(() => {
         if (state === prevStateRef.current) return;

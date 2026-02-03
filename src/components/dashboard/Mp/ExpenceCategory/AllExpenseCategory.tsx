@@ -2,7 +2,7 @@
 import ManagementTable from '@/components/Shared/ManagementTable';
 import React, { useState, useTransition } from 'react';
 import { ExpenseCategoryColumns } from './expenseCategoryClumns';
-import { TExpenseCategory } from '@/types/dashboard/MP/expenceCategory/expenceCategory';
+import { TExpenseCategory } from '@/types/dashboard/MP/expenseCategory/expenseCategory';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import ExpenseCategoryFormDialog from './ExpenseCategoryFormDialog';

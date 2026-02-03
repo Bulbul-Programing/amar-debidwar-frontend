@@ -3,7 +3,7 @@
 
 import { Column } from "@/components/Shared/ManagementTable";
 import { Badge } from "@/components/ui/badge";
-import { TExpenseCategory } from "@/types/dashboard/MP/expenceCategory/expenceCategory";
+import { TExpenseCategory } from "@/types/dashboard/MP/expenseCategory/expenseCategory";
 
 export const ExpenseCategoryColumns: Column<TExpenseCategory>[] = [
     {

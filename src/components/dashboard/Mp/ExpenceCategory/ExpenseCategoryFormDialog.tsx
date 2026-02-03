@@ -13,7 +13,7 @@ import {
 import { toast } from "sonner";
 
 import InputFieldError from "@/components/Shared/InputFieldError";
-import { TExpenseCategory } from "@/types/dashboard/MP/expenceCategory/expenceCategory";
+import { TExpenseCategory } from "@/types/dashboard/MP/expenseCategory/expenseCategory";
 import { createExpenseCategory, updateExpenseCategory } from "@/service/Dashboard/MP/ExpenseCategory/expenseCategory";
 
 

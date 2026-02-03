@@ -69,6 +69,15 @@ const ProjectFormDialog = ({
     };
 
     useEffect(() => {
+        if (project) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
+            setSelectedBudget(project?.budget ?? null);
+        } else {
+            setSelectedBudget(null);
+        }
+    }, [project]);
+
+    useEffect(() => {
         if (state === prevStateRef.current) return;
         prevStateRef.current = state;
 
