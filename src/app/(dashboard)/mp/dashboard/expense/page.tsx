@@ -1,5 +1,6 @@
 import AllExpenseTable from '@/components/dashboard/Mp/Expense/AllExpenseTable';
 import ExpenseManagementHeader from '@/components/dashboard/Mp/Expense/ExpenseManagementHeader';
+import ExpenseSearch from '@/components/dashboard/Mp/Expense/ExpenseSearch';
 import TablePagination from '@/components/Shared/TablePagination';
 import { queryStringFormatter } from '@/lib/formatters';
 import { getAllExpenses } from '@/service/Dashboard/MP/Expense/expense';
@@ -26,6 +27,8 @@ const page = async ({
     return (
         <div className="space-y-5">
             <ExpenseManagementHeader categories={expenseCategories?.data?.data} projects={projects?.data?.data} />
+            <ExpenseSearch />
+
             <Suspense fallback={<ManagementTableSkeleton columnCount={7} hasActions={true} rowCount={5} />}>
                 <AllExpenseTable
                     expense={expense?.data?.data}
