@@ -45,6 +45,35 @@ export const createProject = async (_currentState: any, formData: FormData): Pro
 
 }
 
+export const getSingleProject = async (projectId: string): Promise<any> => {
+    try {
+
+        const res = await serverFetch.get(`/project/${projectId}`, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        const result = await res.json();
+
+        return result;
+    } catch (error: any) {
+        if (error?.digest?.startsWith("NEXT_REDIRECT")) {
+            throw error;
+        }
+
+        console.error(error);
+
+        return {
+            success: false,
+            message:
+                process.env.NODE_ENV === "development"
+                    ? error.message
+                    : "Failed to retrieve project. Please try again.",
+        };
+    }
+};
+
 export const getAllProject = async (queryString?: string): Promise<any> => {
     try {
         const searchParams = new URLSearchParams(queryString);

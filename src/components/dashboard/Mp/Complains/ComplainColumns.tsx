@@ -34,8 +34,7 @@ export const ComplainColumns: Column<TComplain>[] = [
         header: "Category",
         accessor: (complain) => (
             <span className="text-sm font-medium">{complain.category?.name}</span>
-        ),
-        sortKey: "category",
+        )
     },
 
     {

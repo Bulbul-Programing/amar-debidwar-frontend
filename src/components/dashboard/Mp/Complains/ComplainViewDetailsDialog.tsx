@@ -31,25 +31,21 @@ const ComplainViewDetailDialog = ({
 
                 <div className="flex-1 overflow-y-auto px-6 pb-6">
                     {/* Complaint Header */}
-                    <div className="flex flex-col gap-4 p-6 bg-linear-to-br from-primary/30 to-emerald-200/30 rounded-lg mb-6">
-                        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                            <div>
-                                <h2 className="text-3xl font-bold mb-1">{complain.title}</h2>
-                                <p className="text-muted-foreground">{complain.description}</p>
-                            </div>
+                    <div className="flex justify-between items-center gap-4 p-6 bg-linear-to-br from-primary/30 to-emerald-200/30 rounded-lg mb-6">
+                        <div className="">
+                            <h2 className="text-3xl font-bold mb-1">{complain.title}</h2>
+                            {complain.category && (
+                                <div className="flex flex-wrap gap-2">
+                                    <Badge variant="outline">
+                                        Category: {complain.category.name} ({complain.category.nameBn})
+                                    </Badge>
+                                </div>
+                            )}
 
-                            <Badge variant="secondary" className="text-lg px-4 py-2 w-fit">
-                                Location: {complain.location}
-                            </Badge>
                         </div>
-
-                        {complain.category && (
-                            <div className="flex flex-wrap gap-2">
-                                <Badge variant="outline">
-                                    Category: {complain.category.name} ({complain.category.nameBn})
-                                </Badge>
-                            </div>
-                        )}
+                        <Badge variant="secondary" className="text-lg px-4 py-2 w-fit">
+                            Location: {complain.location}
+                        </Badge>
                     </div>
 
                     {/* Complaint Information */}

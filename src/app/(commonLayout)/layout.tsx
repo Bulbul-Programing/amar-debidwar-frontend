@@ -1,4 +1,5 @@
 
+import Footer from '@/components/sharedComponent/Footer';
 import Navbar from '@/components/sharedComponent/Navbar';
 import React from 'react';
 
@@ -9,7 +10,7 @@ const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
             <div>
                 {children}
             </div>
-            {/* <Footer /> */}
+            <Footer />
         </div>
     );
 };
