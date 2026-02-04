@@ -8,12 +8,14 @@ interface RefreshButtonProps {
   size?: "sm" | "default" | "lg";
   variant?: "default" | "outline" | "ghost";
   showLabel?: boolean;
+  text?: string
 }
 
 const RefreshButton = ({
   size = "default",
   variant = "default",
   showLabel = true,
+  text
 }: RefreshButtonProps) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
@@ -29,14 +31,13 @@ const RefreshButton = ({
       variant={variant}
       onClick={handleRefresh}
       disabled={isPending}
-      className="text-white"
+      className="text-white hover:cursor-pointer"
     >
       <RefreshCcw
-        className={`h-4 w-4 ${isPending ? "animate-spin" : ""} ${
-          showLabel ? "mr-2" : ""
-        }`}
+        className={`h-4 w-4 ${isPending ? "animate-spin" : ""} ${showLabel ? "mr-2" : ""
+          }`}
       />
-      {showLabel && "Refresh"}
+      {showLabel && text ? text : "Refresh"}
     </Button>
   );
 };
