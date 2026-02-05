@@ -29,19 +29,20 @@ export const createComplain = async (_currentState: any, formData: FormData): Pr
 
     if (!validateResult.success) {
         return {
-            ...validateResult,
+            success: false,
+            errors: validateResult.errors, // <-- important
             formData: payloadForValidate,
         };
     }
 
-    if (formData.get("photo") as File) {
+    if (formData.get("photo") as File && (formData.get("photo") as File).size > 0) {
         const uploadPhoto = await hostImages([formData.get("photo") as File,]);
         payloadForValidate.photo = uploadPhoto[0]
     }
     else {
         delete payloadForValidate.photo
     }
-
+    console.log("payload", validateResult.data);
     const res = await serverFetch.post("/complain", {
         body: JSON.stringify(validateResult.data),
         headers: { "Content-Type": "application/json" },

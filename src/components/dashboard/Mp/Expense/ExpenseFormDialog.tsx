@@ -66,7 +66,7 @@ const ExpenseFormDialog = ({
         isEdit ? updateExpense.bind(null, expense!.id) : createExpense,
         null
     );
-    console.log(selectedCategory, selectedProject);
+
     const prevStateRef = useRef(state);
 
     const handleClose = () => {

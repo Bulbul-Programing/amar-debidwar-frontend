@@ -9,7 +9,7 @@ const DataNotFound = ({
     description = "এই মুহূর্তে প্রদর্শনের জন্য কোনো তথ্য উপলব্ধ নেই। পরে আবার চেষ্টা করুন।",
 }: NoDataFoundProps) => {
     return (
-        <div className="flex flex-col items-center justify-center rounded-3xl border border-dashed border-border bg-card px-6 py-16 text-center">
+        <div className="flex flex-col items-center justify-center rounded-3xl border border-dashed border-border bg-card px-6 py-16 text-center mx-5 md:mx-10">
             {/* Icon */}
             <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
                 <Inbox size={32} />

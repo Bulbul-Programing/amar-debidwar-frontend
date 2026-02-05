@@ -165,7 +165,6 @@ export const updateDonationSection = async (
 
 export const deleteDonationSection = async (sectionId: string) => {
     try {
-        console.log(sectionId);
         const res = await serverFetch.delete(
             `/donationSection/${sectionId}`
         );

@@ -52,7 +52,7 @@ const BudgetFormDialog = ({
 }: IBudgetFormDialogProps) => {
     const formRef = useRef<HTMLFormElement>(null);
     const isEdit = !!budget;
-    console.log({ budget });
+
     const [selectedFundSource, setSelectedFundSource] =
         useState<TFundSource | null>(budget?.fundSource ?? null);
 

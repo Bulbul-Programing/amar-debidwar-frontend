@@ -7,7 +7,7 @@ const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
     return (
         <div>
             <Navbar />
-            <div>
+            <div className='min-h-screen'>
                 {children}
             </div>
             <Footer />

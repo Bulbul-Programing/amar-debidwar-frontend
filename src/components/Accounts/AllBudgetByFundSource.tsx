@@ -22,22 +22,22 @@ const AllBudgetByFundSource = ({ fundSource }: { fundSource: TFundSource[] }) =>
         else {
 
         }
-    }, [selectedFundSource])
+    }, [router, selectedFundSource])
 
     return (
         <div>
-            <FieldLabel className="font-medium my-1">Select Fund Source</FieldLabel>
+            <FieldLabel className="font-medium my-1">ফান্ড সোর্স খুজুন</FieldLabel>
             <div className='flex gap-x-3 items-center'>
                 <Popover open={openFundSource} onOpenChange={setOpenFundSource}>
                     <PopoverTrigger asChild>
                         <Button variant="outline" className="w-full justify-between">
-                            {selectedFundSource?.name ?? "Select Fund Source"}
+                            {selectedFundSource?.name ?? "ফান্ড সোর্স চিহ্নিত করুন"}
                             <ChevronsUpDown className="h-4 w-4 opacity-50" />
                         </Button>
                     </PopoverTrigger>
                     <PopoverContent className="w-full p-0">
                         <Command>
-                            <CommandInput placeholder="Search Fund Source..." />
+                            <CommandInput placeholder="ফান্ড সোর্স খুজুন..." />
                             <CommandEmpty>No Fund Source found</CommandEmpty>
                             <CommandGroup>
                                 {fundSource.map((fundSource: TFundSource) => (

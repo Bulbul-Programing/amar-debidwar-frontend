@@ -1,19 +1,27 @@
 import { z } from 'zod';
 export const createComplainSchema = z.object({
     title: z.string({
-        error: "Title is required",
-    }),
+        error: "শিরোনাম প্রয়োজন",
+    })
+        .min(4, "শিরোনামের ন্যূনতম দৈর্ঘ্য ৪ অক্ষর হতে হবে"),
+
     description: z.string({
-        error: "Description is required",
-    }),
-    photo: z.string().optional(),
+        error: "বিবরণ প্রয়োজন",
+    })
+        .min(10, "বিবরণের ন্যূনতম দৈর্ঘ্য ১০ অক্ষর হতে হবে"),
+
+    photo: z.uuid().optional(),
+
     location: z.string({
-        error: "Location is required",
-    }),
+        error: "অবস্থান প্রয়োজন",
+    })
+        .min(4, "অবস্থানের ন্যূনতম দৈর্ঘ্য ৪ অক্ষর হতে হবে"),
+
     complainCategory: z.string({
-        error: "Complaint category is required",
-    }),
-})
+        error: "শিকায়ত বিভাগের নাম প্রয়োজন",
+    })
+        .min(5, "শিকায়ত বিভাগের নামের ন্যূনতম দৈর্ঘ্য ৫ অক্ষর হতে হবে"),
+});
 
 export const createComplaintCategorySchema = z.object({
     name: z

@@ -7,10 +7,7 @@ import { createExpenseSchema } from "@/zod/Dashboard/MP/expenseValidation";
 import { revalidateTag } from "next/cache";
 
 /* ---------------- CREATE EXPENSE ---------------- */
-export const createExpense = async (
-    _currentState: any,
-    formData: FormData
-): Promise<any> => {
+export const createExpense = async (_currentState: any, formData: FormData): Promise<any> => {
     const payload: {
         description: FormDataEntryValue | null;
         amount: number;
@@ -27,7 +24,7 @@ export const createExpense = async (
         chalanImage: ''
     };
 
-    if (formData.get("chalanImage") as File) {
+    if (formData.get("chalanImage") as File && (formData.get("chalanImage") as File).size > 0) {
         const uploadPhoto = await hostImages([formData.get("chalanImage") as File,]);
         payload.chalanImage = uploadPhoto[0]
     }
@@ -35,7 +32,7 @@ export const createExpense = async (
         delete payload.chalanImage
     }
 
-    console.log(payload);
+    console.log("payload after validate", payload);
 
     const validateResult = zodValidator(
         payload,
