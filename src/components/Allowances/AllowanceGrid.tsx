@@ -4,6 +4,7 @@ import Link from "next/link";
 import { TServiceRecipient } from "@/types/dashboard/MP/serviceRecipient/serviceRecipient";
 import { FaIdCard } from "react-icons/fa6";
 import AllowanceDetailsModal from "./AllowanceDetailsModal";
+import DataNotFound from "@/NoDataFound/DataNotFound";
 
 interface Props {
     allowances: TServiceRecipient[];
@@ -11,9 +12,12 @@ interface Props {
 
 export default function AllowanceGrid({ allowances }: Props) {
     return (
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
             {allowances.length === 0 ? (
-                <p className="text-gray-500 text-center text-lg">কোনো ভাতা পাওয়া যায়নি।</p>
+                <DataNotFound
+                    title="কোনো ভাতা তথ্য পাওয়া যায়নি"
+                    description="এই এলাকায় এখনো কোনো ভাতা বরাদ্দ দেওয়া হয়নি।"
+                />
             ) : (
                 <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {allowances.map((allowance) => {

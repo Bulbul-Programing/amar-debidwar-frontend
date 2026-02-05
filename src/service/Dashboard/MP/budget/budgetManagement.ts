@@ -37,6 +37,30 @@ export const getAllBudgets = async (queryString?: string) => {
     }
 }
 
+export const getAllBudgetsByFundSource = async (fundSourceId: string) => {
+    try {
+        const response = await serverFetch.get(`/budget/fundSource/${fundSourceId}`,
+            {
+                next: {
+                    tags: [
+                        "budgets"
+                    ],
+                    revalidate: 180,
+                },
+            }
+        )
+
+        const result = await response.json()
+        return result
+    } catch (error: any) {
+        console.log(error);
+        return {
+            success: false,
+            message: `${process.env.NODE_ENV === 'development' ? error.message : 'Something went wrong'}`
+        };
+    }
+}
+
 export const createBudget = async (
     _currentState: any,
     formData: FormData

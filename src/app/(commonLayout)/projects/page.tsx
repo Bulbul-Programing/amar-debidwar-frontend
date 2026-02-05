@@ -5,7 +5,8 @@ import ProjectsHeader from '@/components/Projects/ProjectsHeader';
 import TablePagination from '@/components/Shared/TablePagination';
 import { queryStringFormatter } from '@/lib/formatters';
 import { getAllProject } from '@/service/Dashboard/MP/project/projectManagement';
-import React from 'react';
+import ProjectCardsSkeleton from '@/skeleton/ProjectCardsSkeleton';
+import React, { Suspense } from 'react';
 
 const page = async ({
     searchParams,
@@ -25,7 +26,10 @@ const page = async ({
             <div className='px-4 sm:px-6 lg:px-8 pt-5'>
                 <ProjectSearchComponent />
             </div>
-            <ProjectsCart projects={projects?.data?.data} />
+            <Suspense fallback={<ProjectCardsSkeleton />}>
+                <ProjectsCart projects={projects?.data?.data} />
+            </Suspense>
+
             <div className='my-10'>
                 <TablePagination
                     currentPage={projects?.data?.meta?.page || 1}

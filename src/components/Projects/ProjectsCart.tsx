@@ -3,13 +3,16 @@ import Link from 'next/link';
 import React from 'react';
 import { FaMoneyBillWave } from 'react-icons/fa6';
 import { FaMapMarkerAlt } from "react-icons/fa";
+import DataNotFound from '@/NoDataFound/DataNotFound';
 
 const ProjectsCart = ({ projects }: { projects: TProjectResponse[] }) => {
     return (
         <div>
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
                 {projects.length === 0 ? (
-                    <p className="text-gray-500 text-center">কোনো প্রকল্প পাওয়া যায়নি।</p>
+                    <DataNotFound
+                        title="কোনো প্রকল্প পাওয়া যায়নি"
+                        description="এই মুহূর্তে প্রদর্শনের জন্য কোনো উন্নয়ন প্রকল্প নেই।" />
                 ) : (
                     <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                         {projects.map((project) => {

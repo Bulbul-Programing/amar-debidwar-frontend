@@ -4,7 +4,7 @@ import { navigationLinks } from "./Navbar";
 
 const Footer = () => {
     return (
-        <footer className="bg-white border-t-2">
+        <footer className= "text-primary border-t-2">
             <div className="mx-auto max-w-7xl space-y-8 px-4 py-10 sm:px-6 lg:space-y-16 lg:px-8">
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
                     {/* Logo and Description */}
@@ -14,7 +14,7 @@ const Footer = () => {
                             <h3 className="text-xl md:text-lg lg:text-xl text-primary font-bold">Amer Debidwar</h3>
                         </Link>
 
-                        <p className="mt-4 max-w-xs text-gray-500">
+                        <p className="mt-4 max-w-xs text-muted-foreground">
                             Tracking government funding, projects, and public initiatives transparently. See how public funds are used and which projects are completed for community welfare.
                         </p>
 
@@ -46,10 +46,10 @@ const Footer = () => {
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
                         {navigationLinks.map((link) => (
                             <div key={link.href}>
-                                <p className="font-medium text-gray-900">{link.label}</p>
+                                <p className="font-medium text-secondary-foreground">{link.label}</p>
                                 <ul className="mt-6 space-y-4 text-sm">
                                     <li>
-                                        <Link href={link.href} className="text-gray-700 transition hover:opacity-75">
+                                        <Link href={link.href} className="text-muted-foreground transition hover:opacity-75">
                                             {link.label}
                                         </Link>
                                     </li>
