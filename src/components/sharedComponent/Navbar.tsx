@@ -21,7 +21,7 @@ export const navigationLinks = [
     { href: "/allowances", label: "Allowances", icon: HandCoins, active: true },
     { href: "/accounts", label: "Accounts", icon: FaRegMoneyBill1, active: true },
     { href: "/complain", label: "Complain", icon: MdOutlineReport, active: true },
-    { href: "/about", label: "About", icon: UserIcon },
+    { href: "/aboutUs", label: "About us", icon: UserIcon },
 ]
 
 const Navbar = async () => {

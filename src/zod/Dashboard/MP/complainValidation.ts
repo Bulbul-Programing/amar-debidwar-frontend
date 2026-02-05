@@ -10,7 +10,7 @@ export const createComplainSchema = z.object({
     })
         .min(10, "বিবরণের ন্যূনতম দৈর্ঘ্য ১০ অক্ষর হতে হবে"),
 
-    photo: z.uuid().optional(),
+    photo: z.url().optional(),
 
     location: z.string({
         error: "অবস্থান প্রয়োজন",

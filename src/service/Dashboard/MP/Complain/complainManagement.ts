@@ -25,6 +25,14 @@ export const createComplain = async (_currentState: any, formData: FormData): Pr
         complainCategory: formData.get("complainCategory"),
     };
 
+    if (formData.get("photo") as File && (formData.get("photo") as File).size > 0) {
+        const uploadPhoto = await hostImages([formData.get("photo") as File,]);
+        payloadForValidate.photo = uploadPhoto[0]
+    }
+    else {
+        delete payloadForValidate.photo
+    }
+
     const validateResult = zodValidator(payloadForValidate, createComplainSchema);
 
     if (!validateResult.success) {
@@ -35,14 +43,6 @@ export const createComplain = async (_currentState: any, formData: FormData): Pr
         };
     }
 
-    if (formData.get("photo") as File && (formData.get("photo") as File).size > 0) {
-        const uploadPhoto = await hostImages([formData.get("photo") as File,]);
-        payloadForValidate.photo = uploadPhoto[0]
-    }
-    else {
-        delete payloadForValidate.photo
-    }
-    console.log("payload", validateResult.data);
     const res = await serverFetch.post("/complain", {
         body: JSON.stringify(validateResult.data),
         headers: { "Content-Type": "application/json" },
