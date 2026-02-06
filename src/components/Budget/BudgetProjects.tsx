@@ -1,14 +1,10 @@
 import { TProjectResponse } from '@/types/dashboard/MP/Projects/ProjectTypes';
-import React from 'react';
 import { Card, CardContent, CardFooter, CardHeader } from '../ui/card';
-import { Badge } from '../ui/badge';
 import { BadgeCheck, Building2, Calendar, MapPin, Wallet } from 'lucide-react';
 import { Separator } from '../ui/separator';
 import DataNotFound from '@/NoDataFound/DataNotFound';
 
 const BudgetProjects = ({ projects }: { projects: TProjectResponse[] }) => {
-
-
     if (projects.length === 0) {
         return <DataNotFound
             title='কোন প্রজেক্ট খুজে পাওয়া যায়নি'

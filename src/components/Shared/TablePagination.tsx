@@ -48,7 +48,7 @@ const TablePagination = ({ currentPage, totalPages }: TablePaginationProps) => {
   // }
 
   return (
-    <div className="flex items-center justify-center gap-2">
+    <div className="flex items-center justify-center flex-wrap gap-2">
       <Button
         variant="outline"
         size="sm"

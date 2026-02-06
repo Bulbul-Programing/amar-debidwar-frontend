@@ -1,12 +1,14 @@
-export const dynamic = 'force-dynamic';
-import ComplaintPageHeader from '@/components/Complain/ComplaintPageHeader';
-import { getAllComplaintCategories } from '@/service/Dashboard/MP/ComplainCategory/complainCategory';
+import ComplainPage from '@/components/Complain/ComplainPage';
+import ComplaintPageHeaderSkeleton from '@/skeleton/ComplaintPageHeaderSkeleton';
+import { Suspense } from 'react';
 
 const page = async () => {
-    const complainCategories = await getAllComplaintCategories()
+
     return (
         <div>
-            <ComplaintPageHeader complainCategory={complainCategories?.data?.data} />
+            <Suspense fallback={<ComplaintPageHeaderSkeleton />}>
+                <ComplainPage />
+            </Suspense>
         </div>
     );
 };

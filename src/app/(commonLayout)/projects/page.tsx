@@ -1,12 +1,10 @@
 
-import ProjectsCart from '@/components/Projects/ProjectsCart';
+import ProjectPage from '@/components/Projects/ProjectPage';
 import ProjectSearchComponent from '@/components/Projects/ProjectSearchComponent';
 import ProjectsHeader from '@/components/Projects/ProjectsHeader';
-import TablePagination from '@/components/Shared/TablePagination';
 import { queryStringFormatter } from '@/lib/formatters';
-import { getAllProject } from '@/service/Dashboard/MP/project/projectManagement';
-import ProjectCardsSkeleton from '@/skeleton/ProjectCardsSkeleton';
-import React, { Suspense } from 'react';
+import ProjectPageSkeleton from '@/skeleton/ProjectPageSkeleton';
+import { Suspense } from 'react';
 
 const page = async ({
     searchParams,
@@ -15,27 +13,15 @@ const page = async ({
 }) => {
     const searchParamsObj = await searchParams;
     const queryString = queryStringFormatter(searchParamsObj);
-
-    const projects = await getAllProject(queryString);
-    const totalPages = Math.ceil(
-        (projects?.data?.meta?.total || 1) / (projects?.data?.meta?.limit || 1)
-    );
     return (
         <div>
             <ProjectsHeader />
             <div className='px-4 sm:px-6 lg:px-8 pt-5'>
                 <ProjectSearchComponent />
             </div>
-            <Suspense fallback={<ProjectCardsSkeleton />}>
-                <ProjectsCart projects={projects?.data?.data} />
+            <Suspense fallback={<ProjectPageSkeleton />}>
+                <ProjectPage queryString={queryString} />
             </Suspense>
-
-            <div className='my-10'>
-                <TablePagination
-                    currentPage={projects?.data?.meta?.page || 1}
-                    totalPages={totalPages || 1}
-                />
-            </div>
         </div>
     );
 };

@@ -3,7 +3,6 @@
 import {
     PieChart,
     Pie,
-    Cell,
     ResponsiveContainer,
 } from "recharts";
 
@@ -23,16 +22,6 @@ export default function BudgetHeroHeader({ meta }: Props) {
     );
 
     const remaining = meta.totalBudget - meta.budgeUse;
-
-    const chartData = [
-        { name: "Used", value: meta.budgeUse },
-        { name: "Remaining", value: remaining },
-    ];
-
-    const COLORS = [
-        "hsl(var(--primary))",
-        "hsl(var(--muted))",
-    ];
 
     return (
         <section className="relative overflow-hidden rounded-4xl border bg-card p-4 md:p-8 shadow-sm mt-5 mb-5 md:mb-10 mx-5 md:mx-10">
