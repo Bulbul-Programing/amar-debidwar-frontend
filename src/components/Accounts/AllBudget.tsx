@@ -16,7 +16,7 @@ const AllBudget = async ({ budgets }: { budgets: TBudgetResponse[] }) => {
     return (
         <div>
             {
-                <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+                <section className="mx-auto px-4 sm:px-6 lg:px-8 py-5">
                     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                         {budgets?.map((budget: TBudgetResponse) => (
                             <div
@@ -26,12 +26,12 @@ const AllBudget = async ({ budgets }: { budgets: TBudgetResponse[] }) => {
                                 <div>
                                     <div>
                                         {/* Title */}
-                                        <h3 className="text-lg font-bold text-foreground mb-1 truncate">
+                                        <h3 className="text-lg max-w-87.5 font-bold text-foreground mb-1 truncate">
                                             {budget.title}
                                         </h3>
 
                                         {/* Description */}
-                                        <p className="text-sm text-muted-foreground truncate">
+                                        <p className="text-sm max-w-87.5 text-muted-foreground truncate">
                                             {budget.description}
                                         </p>
                                     </div>

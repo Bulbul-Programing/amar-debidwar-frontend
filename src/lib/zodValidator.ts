@@ -1,6 +1,7 @@
-import { success, ZodObject } from 'zod';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ZodObject } from 'zod';
 
-export const zodValidator = <T>(payload: T, schema: ZodObject) => {
+export const zodValidator = <T>(payload: T, schema: ZodObject<any>) => {
     const validatedPayload = schema.safeParse(payload)
 
     if (!validatedPayload.success) {

@@ -84,7 +84,7 @@ const AllBudget = ({ budgets, fundSources }: budgetProps) => {
             <BudgetViewDetailDialog
                 open={!!viewingBudget}
                 onClose={() => setViewingBudget(null)}
-                budget={viewingBudget}
+                budget={viewingBudget!}
             />
 
             <DeleteConfirmationDialog

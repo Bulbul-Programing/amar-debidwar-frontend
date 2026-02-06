@@ -1,12 +1,10 @@
-import { getAllFoundSource } from '@/service/Dashboard/MP/FundSource/fundManagement';
 import AllBudgetByFundSource from './AllBudgetByFundSource';
+import { TFundSource } from '@/types/dashboard/MP/Fund/FundTypes';
 
-const AllFundSource = async () => {
-    const allFundSource = await getAllFoundSource()
-
+const AllFundSource = async ({ fundSources }: { fundSources: TFundSource[] }) => {
     return (
         <div className='flex gap-x-5 my-5 mx-5 md:mx-10'>
-            <AllBudgetByFundSource fundSource={allFundSource?.data?.data} />
+            <AllBudgetByFundSource fundSource={fundSources} />
         </div>
     );
 };

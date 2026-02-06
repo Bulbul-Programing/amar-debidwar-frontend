@@ -8,7 +8,7 @@ const Page = async () => {
     if(!getUser){
         return <p>No user found</p>
     }
-    console.log(getUser);
+
     return <MyProfile userInfo={getUser} />;
 };
 

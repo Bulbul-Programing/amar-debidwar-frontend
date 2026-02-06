@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -54,9 +55,9 @@ const ChangePasswordForm = () => {
             )}
           </Button>
         </div>
-        {state?.errors?.find((e) => e.field === "oldPassword") && (
+        {state?.errors?.find((e : any) => e.field === "oldPassword") && (
           <p className="text-sm text-red-500">
-            {state.errors.find((e) => e.field === "oldPassword")?.message}
+            {state.errors.find((e : any) => e.field === "oldPassword")?.message}
           </p>
         )}
       </Field>
@@ -86,9 +87,9 @@ const ChangePasswordForm = () => {
             )}
           </Button>
         </div>
-        {state?.errors?.find((e) => e.field === "newPassword") && (
+        {state?.errors?.find((e : any) => e.field === "newPassword") && (
           <p className="text-sm text-red-500">
-            {state.errors.find((e) => e.field === "newPassword")?.message}
+            {state.errors.find((e : any) => e.field === "newPassword")?.message}
           </p>
         )}
       </Field>
@@ -118,9 +119,9 @@ const ChangePasswordForm = () => {
             )}
           </Button>
         </div>
-        {state?.errors?.find((e) => e.field === "confirmPassword") && (
+        {state?.errors?.find((e : any) => e.field === "confirmPassword") && (
           <p className="text-sm text-red-500">
-            {state.errors.find((e) => e.field === "confirmPassword")?.message}
+            {state.errors.find((e : any) => e.field === "confirmPassword")?.message}
           </p>
         )}
       </Field>

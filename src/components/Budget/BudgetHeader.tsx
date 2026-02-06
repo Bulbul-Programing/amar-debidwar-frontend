@@ -35,28 +35,28 @@ export default function BudgetHeroHeader({ meta }: Props) {
     ];
 
     return (
-        <section className="relative overflow-hidden rounded-4xl border bg-card p-8 shadow-sm mt-5 mb-10 mx-5 md:mx-10">
+        <section className="relative overflow-hidden rounded-4xl border bg-card p-4 md:p-8 shadow-sm mt-5 mb-5 md:mb-10 mx-5 md:mx-10">
             {/* 🌊 Glow Background */}
             <div className="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full bg-primary/20 blur-3xl" />
             <div className="pointer-events-none absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
 
-            <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-5 md:gap-8">
                 {/* ================= LEFT CONTENT ================= */}
                 <div className="lg:col-span-2">
                     <span className="inline-flex items-center rounded-full bg-primary/10 px-4 py-1 text-sm font-medium text-primary mb-4">
                         বাজেট ড্যাশবোর্ড
                     </span>
 
-                    <h1 className="text-4xl font-bold tracking-tight text-foreground">
+                    <h1 className="text-xl md:text-4xl font-bold tracking-tight text-foreground">
                         বাজেট ব্যবহারের সারসংক্ষেপ
                     </h1>
 
-                    <p className="mt-3 max-w-xl text-muted-foreground">
+                    <p className=" text-sm md:text-base mt-3 max-w-xl text-muted-foreground">
                         স্বচ্ছ আর্থিক বিশ্লেষণের মাধ্যমে চলমান প্রকল্পসমূহে সরকারি অর্থ কীভাবে বরাদ্দ ও ব্যয় করা হচ্ছে তার সুস্পষ্ট চিত্র উপস্থাপন করা হচ্ছে।
                     </p>
 
                     {/* ===== STATS ===== */}
-                    <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div className="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                         <Stat label="মোট বাজেট" value={meta.totalBudget || 0} />
                         <Stat label="ব্যবহৃত" value={meta.budgeUse || 0} highlight />
                         <Stat label="বাকী আছে" value={remaining || 0} />
@@ -119,12 +119,12 @@ function Stat({
     highlight?: boolean;
 }) {
     return (
-        <div className="rounded-3xl border bg-muted/40 p-5">
+        <div className="rounded-lg md:rounded-3xl border bg-muted/40 p-3 md:p-5">
             <p className="text-sm text-muted-foreground mb-1">
                 {label}
             </p>
             <p
-                className={`text-xl font-semibold ${highlight ? "text-primary" : "text-foreground"
+                className={`text-base md:text-xl font-semibold ${highlight ? "text-primary" : "text-foreground"
                     }`}
             >
                 {typeof value === "number"

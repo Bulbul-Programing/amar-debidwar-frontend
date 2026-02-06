@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import ComplaintPageHeader from '@/components/Complain/ComplaintPageHeader';
 import { getAllComplaintCategories } from '@/service/Dashboard/MP/ComplainCategory/complainCategory';
 

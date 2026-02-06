@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use server"
 
+import { serverFetch } from "@/lib/server-fetch";
 import { getCookie } from "./tokenHandlers";
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import { TUser } from "@/types/User/TUserInfo";
-import { serverFetch } from "@/lib/server-fetch";
 
 export const getUserInfo = async (): Promise<TUser | any> => {
     let userInfo: TUser | any;
@@ -18,7 +18,7 @@ export const getUserInfo = async (): Promise<TUser | any> => {
 
         if (result.success) {
             const accessToken = await getCookie("accessToken");
-            
+
             if (!accessToken) {
                 throw new Error("No access token found");
             }
@@ -43,7 +43,7 @@ export const getUserInfo = async (): Promise<TUser | any> => {
             id: "",
             name: "Unknown User",
             email: "",
-            role: "TRAVELER",
+            role: "USER",
         };
     }
 

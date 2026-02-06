@@ -1,9 +1,13 @@
+export const dynamic = 'force-dynamic';
+import DashboardHome from '@/components/dashboard/Mp/DBHome/MPDashboardHome';
+import { getMPDashboardHomeData } from '@/service/Dashboard/MP/dashboardHome';
 import React from 'react';
 
-const MpDashboardHome = () => {
+const MpDashboardHome = async () => {
+    const getDBHomeData = await getMPDashboardHomeData()
     return (
         <div>
-            <h1>MP Dashboard Home</h1>
+            <DashboardHome data={getDBHomeData?.data} />
         </div>
     );
 };

@@ -32,8 +32,6 @@ export const createExpense = async (_currentState: any, formData: FormData): Pro
         delete payload.chalanImage
     }
 
-    console.log("payload after validate", payload);
-
     const validateResult = zodValidator(
         payload,
         createExpenseSchema

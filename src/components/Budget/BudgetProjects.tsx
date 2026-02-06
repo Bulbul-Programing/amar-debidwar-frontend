@@ -16,7 +16,7 @@ const BudgetProjects = ({ projects }: { projects: TProjectResponse[] }) => {
     }
 
     return (
-        <div className='grid grid-cols-3 gap-4 m-10 '>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 m-5 md:m-10 '>
             {
                 projects.map((data) => (
                     <Card key={data.id} className="group overflow-hidden rounded-2xl border  shadow-sm transition-all hover:shadow-lg">
