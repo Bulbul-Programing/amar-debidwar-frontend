@@ -27,7 +27,7 @@ const AllBudgetByFundSource = ({ fundSource }: { fundSource: TFundSource[] }) =>
     return (
         <div>
             <FieldLabel className="font-medium my-1">ফান্ড সোর্স খুজুন</FieldLabel>
-            <div className='flex gap-x-3 items-center'>
+            <div className='flex flex-wrap md:flex-nowrap gap-3 items-center'>
                 <Popover open={openFundSource} onOpenChange={setOpenFundSource}>
                     <PopoverTrigger asChild>
                         <Button variant="outline" className="w-full justify-between">

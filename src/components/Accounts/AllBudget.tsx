@@ -26,12 +26,12 @@ const AllBudget = async ({ budgets }: { budgets: TBudgetResponse[] }) => {
                                 <div>
                                     <div>
                                         {/* Title */}
-                                        <h3 className="text-lg max-w-87.5 font-bold text-foreground mb-1 truncate">
+                                        <h3 className="text-lg max-w-60 md:w-full font-bold text-foreground mb-1 truncate">
                                             {budget.title}
                                         </h3>
 
                                         {/* Description */}
-                                        <p className="text-sm max-w-87.5 text-muted-foreground truncate">
+                                        <p className="text-sm max-w-60 md:w-full text-muted-foreground truncate">
                                             {budget.description}
                                         </p>
                                     </div>

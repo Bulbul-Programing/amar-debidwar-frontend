@@ -27,12 +27,12 @@ const ProjectsCart = ({ projects }: { projects: TProjectResponse[] }) => {
                                     className="bg-white shadow-lg rounded-3xl p-6 flex flex-col justify-between transform hover:-translate-y-2 hover:shadow-3xl transition duration-300 border border-gray-100"
                                 >
                                     {/* Project Title */}
-                                    <h2 className="text-xl font-semibold text-gray-900 mb-2 truncate">
+                                    <h2 className="text-xl max-w-67 md:w-full font-semibold text-gray-900 mb-2 truncate">
                                         {project.title}
                                     </h2>
 
                                     {/* Description */}
-                                    <p className="text-gray-600 text-sm mb-4 line-clamp-1">{project.description}</p>
+                                    <p className="text-gray-600 max-w-67 md:w-full text-sm mb-4 line-clamp-1">{project.description}</p>
 
                                     {/* Badges */}
                                     <div className="flex flex-wrap gap-2 mb-4">
